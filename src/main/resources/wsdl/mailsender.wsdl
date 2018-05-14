@@ -1,0 +1,67 @@
+<wsdl:definitions
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.example.org/demo/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="mailsenderService"
+	targetNamespace="http://www.example.org/demo/">
+	<wsdl:types>
+		<xsd:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.example.org/demo/"
+			elementFormDefault="unqualified" version="1.0">
+			<xsd:element name="mailsender">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" name="to" type="xsd:string" />
+						<xsd:element minOccurs="1" name="subject" type="xsd:string" />
+						<xsd:element minOccurs="1" name="message" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="mailsenderResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element minOccurs="1" name="estado" type="xsd:string" />
+						<xsd:element minOccurs="1" name="motivoEstado" type="xsd:string" />
+						<xsd:element minOccurs="1" name="fechaRespuesta" type="xsd:dateTime" />
+						<xsd:element minOccurs="1" name="codigoEstado" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>			
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="mailsenderRequest">
+		<wsdl:part element="tns:mailsender" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="mailsenderResponse">
+		<wsdl:part element="tns:mailsenderResponse"
+			name="parameters" />
+	</wsdl:message>	
+	<wsdl:portType name="MailSenderSystemServices">
+		<wsdl:operation name="mailsender">
+			<wsdl:input message="tns:mailsenderRequest" />
+			<wsdl:output message="tns:mailsenderResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="MailSenderServicesEndpoint"
+		type="tns:MailSenderSystemServices">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="mailsender">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="mailsenderRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="mailsenderResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="MailSenderService">
+		<wsdl:port binding="tns:MailSenderServicesEndpoint"
+			name="MailSenderServicesEndpoint">
+			<soap:address
+				location="http://localhost:8181/cxf/services/MailSenderService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
