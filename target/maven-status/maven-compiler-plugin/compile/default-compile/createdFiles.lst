@@ -1,8 +1,8 @@
-org\example\demo\package-info.class
+org\mailsender\demo\package-info.class
+org\mailsender\demo\MailSenderSystemServices.class
+org\mailsender\demo\MailsenderResponse.class
+org\mailsender\demo\MailSenderService.class
+org\mailsender\demo\Mailsender.class
 co\com\javeriana\soap\integracion\MailSenderSOAPService\SoapService.class
-org\example\demo\MailSenderService.class
-org\example\demo\ObjectFactory.class
+org\mailsender\demo\ObjectFactory.class
 co\com\javeriana\soap\integracion\util\Utils.class
-org\example\demo\Mailsender.class
-org\example\demo\MailSenderSystemServices.class
-org\example\demo\MailsenderResponse.class

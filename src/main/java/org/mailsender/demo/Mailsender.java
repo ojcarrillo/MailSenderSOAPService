@@ -1,5 +1,5 @@
 
-package org.example.demo;
+package org.mailsender.demo;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

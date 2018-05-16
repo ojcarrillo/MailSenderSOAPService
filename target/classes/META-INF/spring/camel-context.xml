@@ -19,8 +19,8 @@ http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/came
 		address="/services/mailsender"
 		endpointName="a:MailSenderServicesEndpoint"
 		serviceName="a:MailSenderService" wsdlURL="wsdl/mailsender.wsdl"
-		serviceClass="org.example.demo.MailSenderSystemServices"
-		xmlns:a="http://www.example.org/demo/">
+		serviceClass="org.mailsender.demo.MailSenderSystemServices"
+		xmlns:a="http://www.mailsender.org/demo/">
 		<cxf:properties>
 			<entry key="dataFormat" value="PAYLOAD" />
 		</cxf:properties>
@@ -28,12 +28,12 @@ http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/came
 
 	<camel:camelContext
 		xmlns="http://camel.apache.org/schema/spring"
-		xmlns:demo="http://www.example.org/demo/">
+		xmlns:demo="http://www.mailsender.org/demo/">
 
 		<camel:dataFormats>
 			<camel:jaxb id="mailsenderPayload"
-				contextPath="org.example.demo"
-				partClass="org.example.demo.Mailsender" />
+				contextPath="org.mailsender.demo"
+				partClass="org.mailsender.demo.Mailsender" />
 		</camel:dataFormats>
 
 		<camel:route id="soap-integration">
